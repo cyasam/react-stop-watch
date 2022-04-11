@@ -1,0 +1,16 @@
+.button {
+  background-color: rgb(8, 123, 255);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: 0 5px;
+}
+
+.button:active {
+  opacity: 0.8;
+}
+
+.button:hover {
+  background-color: rgb(7, 103, 212);
+}
