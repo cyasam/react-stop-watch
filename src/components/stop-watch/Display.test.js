@@ -13,13 +13,21 @@ const customRender = (ui, { providerProps, ...renderOptions }) => {
 };
 
 test('should make error when Display Component is not in Watch Component', () => {
-  render(<Display />);
+  const err = console.error;
+  console.error = jest.fn();
 
-  const message = screen.getByText(
+  let error;
+  try {
+    render(<Display />);
+  } catch (err) {
+    error = err;
+  }
+
+  expect(error.message).toEqual(
     'Display component cannot be used outside the Menu component.'
   );
 
-  expect(message).toBeInTheDocument();
+  console.error = err;
 });
 
 test('should show 11:08:04.22 when timer start after ((11 * 60 * 60) + (8 * 60) + 4) * 1000 + 220 ms', async () => {
