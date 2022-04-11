@@ -16,14 +16,7 @@ test('should make error when Display Component is not in Watch Component', () =>
   const err = console.error;
   console.error = jest.fn();
 
-  let error;
-  try {
-    render(<Display />);
-  } catch (err) {
-    error = err;
-  }
-
-  expect(error.message).toEqual(
+  expect(() => render(<Display />)).toThrow(
     'Display component cannot be used outside the Menu component.'
   );
 

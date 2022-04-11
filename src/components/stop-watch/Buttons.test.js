@@ -6,14 +6,7 @@ test('should make error when Buttons Component is not in Watch Component', () =>
   const err = console.error;
   console.error = jest.fn();
 
-  let error;
-  try {
-    render(<Buttons />);
-  } catch (err) {
-    error = err;
-  }
-
-  expect(error.message).toEqual(
+  expect(() => render(<Buttons />)).toThrow(
     'Buttons component cannot be used outside the Menu component.'
   );
 
