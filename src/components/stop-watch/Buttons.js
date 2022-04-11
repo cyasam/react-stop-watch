@@ -7,8 +7,8 @@ function Buttons() {
   const context = useContext(StopWatchContext);
 
   if (!context) {
-    throw new Error(
-      'Buttons component cannot be used outside the Menu component.'
+    return (
+      <div>Buttons component cannot be used outside the Menu component.</div>
     );
   }
 
