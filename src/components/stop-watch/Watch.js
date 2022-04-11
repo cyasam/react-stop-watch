@@ -10,19 +10,11 @@ function Watch({ children }) {
   const { duration, setDuration } = useWatchInterval(started);
 
   const start = useCallback(() => {
-    if (started) {
-      throw new Error('StopWatch has already started');
-    }
-
-    setStarted(true);
+    !started && setStarted(true);
   }, [started]);
 
   const stop = useCallback(() => {
-    if (!started) {
-      throw new Error('StopWatch is not started');
-    }
-
-    setStarted(false);
+    started && setStarted(false);
   }, [started]);
 
   const reset = useCallback(() => {
